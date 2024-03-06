@@ -14,4 +14,17 @@ class Actor(models.Model):
 
 
 class Genre(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=255, unique=True)
+
+
+class TheatreHall(models.Model):
+    name = models.CharField(max_length=255)
+    rows = models.IntegerField()
+    seats_in_row = models.IntegerField()
+
+
+class Performance(models.Model):
+    play = models.ForeignKey(Play, on_delete=models.CASCADE)
+    theatre_hall = models.ForeignKey(TheatreHall, on_delete=models.CASCADE)
+    show_time = models.DateTimeField()
+
