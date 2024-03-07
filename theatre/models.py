@@ -42,7 +42,7 @@ class TheatreHall(models.Model):
 
     @property
     def capacity(self) -> int:
-        return self.rows *self.seats_in_row
+        return self.rows * self.seats_in_row
 
     def __str__(self):
         return self.name
